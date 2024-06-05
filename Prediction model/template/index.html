@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection Form</title>
+  </head>
+  <link rel="stylesheet" href="../static/styles.css"/>
+  <body background="../static/background.svg">
+    <form action="{{ url_for('predict')}}" method="POST">
+    <div class="outer"><div class="inner1 motif">
+      <h1 class="text">Fraud Detection Form</h1></div>
+    <div class="inner2 motif">
+      <p><label for="type">Type</label></p>
+      <p><label for="Amount">Amount</label></p>
+      <p><label for="oldbalanceOrg">Old balance (Sender)</label></p>
+      <p><label for="newbalanceOrig">New balance (Sender)</label></p>
+      <p><label for="oldbalanceDest">Old balance (Receiver)</label></p>
+      <p><label for="newbalanceDest">New balance (Receiver)</label></p>
+    </div>
+    <div class="inner3 motif">
+      <select id="type" name="type" >
+        <option value="" disabled selected hidden>Enter the type of transaction</option>
+        <option value=0>Cash_in</option>
+        <option value=1>Cash_out</option>
+        <option value=2>Debit</option>
+        <option value=3>Payment</option>
+        <option value=4>Transfer</option></select><br>
+        <input type="text" id="amount" name="amount" placeholder="Enter the amount to be transacted" required /><br>
+        <input type="text" id="oldbalanceOrg" name="oldbalanceOrg" placeholder="Enter the amount" required /><br>
+        <input type="text" id="newbalanceOrig" name="newbalanceOrig" placeholder="Enter the amount" required /><br>
+        <input type="text" id="oldbalanceDest" name="oldbalanceDest" placeholder="Enter the amount" required /><br>
+        <input type="text" id="newbalanceDest" name="newbalanceDest" placeholder="Enter the amount" required />
+    </div>
+      <img style="margin-left: 5.4rem;" src="../static/line.png" alt="line"><br>
+      <input type="submit" value="DETECT" formnovalidate />
+     </form>
+      <h4 class="blink_me"> {{ Prediction_appears_here }} </h4>
+</body>
+</html>
